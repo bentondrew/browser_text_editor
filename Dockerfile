@@ -13,18 +13,15 @@ RUN vue build App.vue
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-RUN rm -rf /etc/nginx/conf.d/default.conf
-# RUN addgroup -S -g 1000 nginx_user && \
-#     adduser -u 1000 -S -G nginx_user -h /home/nginx_user -s /sbin/nologin -D nginx_user && \
-#     chown -R nginx_user:nginx_user /home/nginx_user && \
-#     rm -rf /etc/nginx/conf.d/default.conf && \
-#     touch /var/run/nginx.pid && \
-#     chown -R nginx_user:nginx_user /var/run/nginx.pid && \
-#     chown -R nginx_user:nginx_user /var/cache/nginx && \
-#     apk add --no-cache libcap && \
-#     setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/nginx
-# WORKDIR /home/nginx_user
-COPY service/ /etc/nginx/conf.d/
+RUN rm -rf /etc/nginx/conf.d/default.conf && \
+    touch /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/log/nginx/ && \
+    apk add --no-cache libcap && \
+    setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/nginx
+COPY service/text_editor.conf /etc/nginx/conf.d/
+COPY service/nginx.conf /etc/nginx/
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 COPY static/ /usr/share/nginx/static/
 EXPOSE 80
