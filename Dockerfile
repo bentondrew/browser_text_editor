@@ -2,16 +2,16 @@
 
 # build stage
 FROM node:lts-alpine as build-stage
+COPY config/vuerc /root/.vuerc
 WORKDIR /app
 RUN npm install npm -g && \
     npm install -g typescript && \
     npm install -g ts-node && \
     npm install -g @vue/cli && \
     npm install -g @vue/cli-service-global && \
-    vue create -d text_editor
+    vue create -p preset.json text_editor
 WORKDIR /app/text_editor
 RUN yarn build --modern
-COPY assets/favicon.ico ./favicon.ico
 
 # production stage
 FROM nginx:stable-alpine as production-stage
