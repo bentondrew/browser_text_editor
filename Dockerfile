@@ -14,8 +14,8 @@ RUN vue build App.vue
 # production stage
 FROM nginx:stable-alpine as production-stage
 RUN rm -rf /etc/nginx/conf.d/default.conf && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid && \
+    # touch /var/run/nginx.pid && \
+    # chown -R nginx:nginx /var/run/nginx.pid && \
     chown -R nginx:nginx /var/cache/nginx && \
     chown -R nginx:nginx /var/log/nginx/ && \
     apk add --no-cache libcap && \
