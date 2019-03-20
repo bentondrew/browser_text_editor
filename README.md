@@ -11,10 +11,10 @@ Service for a browser based text editor. Contains the service which serves up th
 ## Docker Image Build Instructions
 From directory containing the Dockerfile
 ```Bash
-docker build -t browser_text_editor:0.0.1 .
+docker build -t browser_text_editor:0.0.2 .
 ```
 
 ## Docker Run Instructions
 ```Bash
-docker run --rm -p 80:80 browser_text_editor:0.0.1
+docker run --rm -p 80:80 browser_text_editor:0.0.2
 ```
