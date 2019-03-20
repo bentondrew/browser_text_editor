@@ -19,7 +19,8 @@ RUN addgroup -S -g 1000 python_user && \
     rm -rf /etc/nginx/conf.d/default.conf && \
     touch /var/run/nginx.pid && \
     chown -R python_user:python_user /var/run/nginx.pid && \
-    chown -R python_user:python_user /var/cache/nginx
+    chown -R python_user:python_user /var/cache/nginx && \
+    setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/nginx
 WORKDIR /home/python_user
 COPY service/ /etc/nginx/conf.d/
 COPY --from=build-stage /app/dist /usr/share/nginx/html
