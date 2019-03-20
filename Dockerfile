@@ -3,13 +3,15 @@
 # build stage
 FROM node:lts-alpine as build-stage
 WORKDIR /app
-COPY src/ ./
 RUN npm install npm -g && \
     npm install -g typescript && \
     npm install -g ts-node && \
     npm install -g @vue/cli && \
-    npm install -g @vue/cli-service-global
-RUN vue build App.vue
+    npm install -g @vue/cli-service-global && \
+    vue create -d text_editor
+WORKDIR /app/text_editor
+# COPY src/ ./
+RUN yarn build --modern
 
 # production stage
 FROM nginx:stable-alpine as production-stage
@@ -22,8 +24,8 @@ RUN rm -rf /etc/nginx/conf.d/default.conf && \
     setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/nginx
 COPY service/text_editor.conf /etc/nginx/conf.d/
 COPY service/nginx.conf /etc/nginx/
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY static/ /usr/share/nginx/static/
+COPY --from=build-stage /app/text_editor/dist /usr/share/nginx/html
+# COPY static/ /usr/share/nginx/static/
 EXPOSE 80
 USER nginx
 CMD ["nginx", "-g", "daemon off;"]
