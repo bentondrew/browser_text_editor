@@ -18,3 +18,6 @@ docker build -t browser_text_editor:0.0.2 .
 ```Bash
 docker run --rm -p 80:80 browser_text_editor:0.0.2
 ```
+
+## Know Issues
+Running production nginx server as non-root user causes unlink from nginx.pid to fail when shutting down server.
