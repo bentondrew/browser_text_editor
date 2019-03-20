@@ -10,8 +10,8 @@ RUN npm install npm -g && \
     npm install -g @vue/cli-service-global && \
     vue create -d text_editor
 WORKDIR /app/text_editor
-# COPY src/ ./
 RUN yarn build --modern
+COPY assets/favicon.ico ./favicon.ico
 
 # production stage
 FROM nginx:stable-alpine as production-stage
@@ -25,7 +25,6 @@ RUN rm -rf /etc/nginx/conf.d/default.conf && \
 COPY service/text_editor.conf /etc/nginx/conf.d/
 COPY service/nginx.conf /etc/nginx/
 COPY --from=build-stage /app/text_editor/dist /usr/share/nginx/html
-# COPY static/ /usr/share/nginx/static/
 EXPOSE 80
 USER nginx
 CMD ["nginx", "-g", "daemon off;"]
