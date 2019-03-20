@@ -20,6 +20,7 @@ RUN addgroup -S -g 1000 python_user && \
     touch /var/run/nginx.pid && \
     chown -R python_user:python_user /var/run/nginx.pid && \
     chown -R python_user:python_user /var/cache/nginx && \
+    apk add --no-cache libcap && \
     setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/nginx
 WORKDIR /home/python_user
 COPY service/ /etc/nginx/conf.d/
