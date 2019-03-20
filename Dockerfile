@@ -13,7 +13,7 @@ RUN vue build App.vue
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-RUN m -rf /etc/nginx/conf.d/default.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
 # RUN addgroup -S -g 1000 nginx_user && \
 #     adduser -u 1000 -S -G nginx_user -h /home/nginx_user -s /sbin/nologin -D nginx_user && \
 #     chown -R nginx_user:nginx_user /home/nginx_user && \
