@@ -12,6 +12,7 @@ RUN npm install npm -g && \
     vue create -p preset.json text_editor
 WORKDIR /app/text_editor
 COPY src/assets src/assets
+COPY public/ public/
 RUN npm run build --modern
 
 # production stage
