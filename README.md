@@ -8,6 +8,7 @@ Service for a browser based text editor. Contains the service which serves up th
 ### Creating Vue app
 * [Vue CLI](https://cli.vuejs.org/guide/#components-of-the-system)
 * [Vue Guide](https://vuejs.org/v2/guide/#)
+* [Vue CLI Video Tutorials](https://www.vuemastery.com/courses/real-world-vue-js/vue-cli/)
 
 ## Docker Image Build Instructions
 From directory containing the Dockerfile
