@@ -11,6 +11,7 @@ RUN npm install npm -g && \
     npm install -g @vue/cli-service-global && \
     vue create -p preset.json text_editor
 WORKDIR /app/text_editor
+COPY src/assets src/assets
 RUN npm run build --modern
 
 # production stage
