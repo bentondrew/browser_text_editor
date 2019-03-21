@@ -11,7 +11,7 @@ RUN npm install npm -g && \
     npm install -g @vue/cli-service-global && \
     vue create -p preset.json text_editor
 WORKDIR /app/text_editor
-RUN yarn build --modern
+RUN npm run build --modern
 
 # production stage
 FROM nginx:stable-alpine as production-stage
