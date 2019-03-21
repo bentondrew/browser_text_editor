@@ -1,6 +1,6 @@
 {
   "useTaobaoRegistry": false,
-  "packageManager": "yarn",
+  "packageManager": "npm",
   "presets": {
     "preset.json": {
       "useConfigFiles": false,
