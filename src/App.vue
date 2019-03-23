@@ -4,7 +4,7 @@
       <router-link
         to="/"
         tag="img"
-        src="<%= BASE_URL %>favicon.ico"
+        src="/favicon.ico"
       ></router-link>
       | <router-link to="/login">Login</router-link> |
       <router-link to="/account">Account</router-link>
