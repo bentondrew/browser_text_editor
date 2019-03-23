@@ -16,7 +16,11 @@ import { mapGetters, mapMutations } from "vuex";
 
 export default {
   methods: {
-    ...mapMutations({ logout: "stopSession" })
+    ...mapMutations({ "stopSession" }),
+    logout: () => {
+      stopSession()
+      this.$route.router.push("home")
+    }
   },
   computed: {
     ...mapGetters(["sessionAlive"])
