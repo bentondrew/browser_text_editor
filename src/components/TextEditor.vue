@@ -10,7 +10,7 @@ export default {
   name: "TextEditor",
   props: {
     msg: String
-  }                         
+  }
 };
 </script>
 
@@ -31,4 +31,3 @@ a {
   color: #42b983;
 }
 </style>
-
