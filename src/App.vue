@@ -1,13 +1,33 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/" tag="img" src="/mini_logo.png"></router-link>
-      | <router-link to="/login">Login</router-link> |
-      <router-link to="/account">Account</router-link>
+      <div id="home_link">
+        <router-link to="/" tag="img" src="/mini_logo.png"></router-link>
+      </div>
+      <div id="session_links">
+        <router-link to="/login" v-show="!sessionAlive">Login</router-link>
+        <router-link to="/account" v-show="sessionAlive">Account</router-link>
+        <button @click="logout" v-show="sessionAlive">Logout</button>
+      </div>>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout: => {
+        this.$store.mutations.session.commit({ type: 'stopSession' })
+    }
+  }
+  computed: {
+    sessionAlive: => {
+      return this.$store.getters.session.sessionAlive
+    }
+  }
+};
+</script>
 
 <style>
 #app {
