@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex"
+import { mapGetters } from "vuex"
 
 export default {
   methods: {
@@ -21,9 +21,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      "sessionAlive"
-    ])
+    ...mapGetters(["sessionAlive"])
   }
 };
 </script>
