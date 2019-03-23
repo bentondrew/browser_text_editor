@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
+
 export default {
   methods: {
     logout: () => {
@@ -19,9 +21,9 @@ export default {
     }
   },
   computed: {
-    sessionAlive: () => {
-      return this.$store.getters.session.sessionAlive;
-    }
+    ...mapGetters([
+      "sessionAlive"
+    ])
   }
 };
 </script>
