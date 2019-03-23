@@ -9,7 +9,7 @@
 export default {
   methods: {
     login: () => {
-        this.$store.mutations.session.commit({ type: 'startSession' })
+        this.$store.mutations.session.commit({ type: "startSession" });
     }
   }
 };
