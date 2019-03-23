@@ -12,13 +12,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   methods: {
-    logout: () => {
-      this.$store.mutations.session.commit({ type: "stopSession" });
-    }
+    ...mapMutations({ logout: "stopSession" })
   },
   computed: {
     ...mapGetters(["sessionAlive"])

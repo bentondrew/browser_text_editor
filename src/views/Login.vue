@@ -6,11 +6,11 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   methods: {
-    login: () => {
-      this.$store.mutations.session.commit({ type: "startSession" });
-    }
+    ...mapMutations({ login: "startSession" })
   }
 };
 </script>
