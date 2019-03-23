@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/"><img alt="Text Editor logo" src="../assets/logo.png" /></router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link to="/account">Account</router-link>
     </div>

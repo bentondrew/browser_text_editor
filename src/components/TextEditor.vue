@@ -1,6 +1,6 @@
 <template>
   <div class="text_editor">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="Text Editor logo" src="../assets/logo.png" />
     <h1>{{ msg }}</h1>
   </div>
 </template>
