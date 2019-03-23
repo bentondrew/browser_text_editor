@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/" tag="img" src="./assets/logo.png"></router-link> |
+      <router-link to="/" tag="img" src="<%= BASE_URL %>favicon.ico"></router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link to="/account">Account</router-link>
     </div>
