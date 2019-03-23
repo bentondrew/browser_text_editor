@@ -18,7 +18,7 @@ export default new Router({
       // this generates a separate chunk (login.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "login" */ "./views/Login.vue")
+        import(/* webpackChunkName: "login" */ "../views/Login.vue")
     },
     {
       path: "/account",
@@ -27,7 +27,7 @@ export default new Router({
       // this generates a separate chunk (account.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "account" */ "./views/Account.vue")
+        import(/* webpackChunkName: "account" */ "../views/Account.vue")
     }
   ]
 });
