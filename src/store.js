@@ -9,7 +9,7 @@ const sessionModule = {
       sessionAlive: state => {
         return state.alive
       }
-    }
+    },
     mutations: {
         startSession: state => {
             state.alive = true

@@ -8,7 +8,7 @@
 <script>
 export default {
   methods: {
-    login: => {
+    login: () => {
         this.$store.mutations.session.commit({ type: 'startSession' })
     }
   }

@@ -17,12 +17,12 @@
 <script>
 export default {
   methods: {
-    logout: => {
+    logout: () => {
         this.$store.mutations.session.commit({ type: 'stopSession' })
     }
   }
-  computed: {
-    sessionAlive: => {
+  computed: () => {
+    sessionAlive: {
       return this.$store.getters.session.sessionAlive
     }
   }
