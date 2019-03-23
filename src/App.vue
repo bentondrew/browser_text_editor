@@ -21,8 +21,8 @@ export default {
       this.$store.mutations.session.commit({ type: "stopSession" });
     }
   },
-  computed: () => {
-    sessionAlive: {
+  computed: {
+    sessionAlive: () => {
       return this.$store.getters.session.sessionAlive;
     }
   }
