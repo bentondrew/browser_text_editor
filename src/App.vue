@@ -18,7 +18,7 @@
 export default {
   methods: {
     logout: () => {
-        this.$store.mutations.session.commit({ type: "stopSession" });
+      this.$store.mutations.session.commit({ type: "stopSession" });
     }
   },
   computed: () => {
