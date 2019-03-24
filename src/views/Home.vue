@@ -1,17 +1,24 @@
 <template>
   <div class="home">
-    <TextEditor msg="Text Editor" />
+    <Welcome msg="Text Editor" v-show="!sessionAlive"/ >
+    <TextEditor msg="Text Editor" v-show="sessionAlive"/ >
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import TextEditor from "@/components/TextEditor.vue";
+import Welcome from "@/components/Welcome.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "home",
   components: {
-    TextEditor
+    TextEditor,
+    Welcome
+  },
+  computed: {
+    ...mapGetters(["sessionAlive"])
   }
 };
 </script>
