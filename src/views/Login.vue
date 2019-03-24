@@ -13,7 +13,7 @@ export default {
     ...mapMutations(["startSession"]),
     login() {
       this.startSession();
-      this.$route.router.push("home");
+      this.$router.push("home");
     }
   }
 };
