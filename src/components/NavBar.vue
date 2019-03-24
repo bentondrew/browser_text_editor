@@ -17,7 +17,7 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   methods: {
     ...mapMutations(["stopSession"]),
-    logout: () => {
+    logout() {
       this.stopSession();
       this.$route.router.push("home");
     }

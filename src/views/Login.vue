@@ -11,7 +11,7 @@ import { mapMutations } from "vuex";
 export default {
   methods: {
     ...mapMutations(["startSession"]),
-    login: () => {
+    login() {
       this.startSession();
       this.$route.router.push("home");
     }
