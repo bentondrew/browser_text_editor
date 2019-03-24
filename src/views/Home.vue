@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Welcome msg="Text Editor" v-show="!sessionAlive"/ >
-    <TextEditor msg="Text Editor" v-show="sessionAlive"/ >
+    <Welcome msg="Text Editor" v-show="!sessionAlive" />
+    <TextEditor v-show="sessionAlive" />
   </div>
 </template>
 
