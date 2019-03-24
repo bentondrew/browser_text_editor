@@ -19,7 +19,7 @@ export default {
     ...mapMutations(["stopSession"]),
     logout() {
       this.stopSession();
-      this.$router.push({name: "home"});
+      this.$router.push({ name: "home" });
     }
   },
   computed: {
