@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     onSave() {
-      this.flash("Save button pushed!", "success");
+      this.flash("Save button pushed!", "success", { timeout: 3000 });
     }
   }
 };
