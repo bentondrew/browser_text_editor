@@ -33,7 +33,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("files", ["addFile", "updateFileContent"])
+    ...mapMutations("files", ["addFile", "updateFileContent"]),
     onSave() {
       if (this.fileExist) {
         this.updateFileContent(this.fileName, this.fileContent);
