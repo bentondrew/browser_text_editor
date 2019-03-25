@@ -13,15 +13,17 @@
         <input type="submit" value="Save" />
       </p>
     </form>
-    <hr />
-    <div>
-      <h1>{{ fileName }}</h1>
-      <h2>{{ fileContent }}</h2>
+    <div id="savedFile" v-show="if { this.fileExist(this.fileName) }">
+      <hr />
+      <h1>{{ getFile(fileName).name }}</h1>
+      <h2>{{ getFile(fileName).content }}</h2>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "TextEditor",
   data() {
@@ -31,9 +33,18 @@ export default {
     };
   },
   methods: {
+    ...mapMutations("files", ["addFile", "updateFileContent"])
     onSave() {
-      this.flash("Save button pushed!", "success", { timeout: 3000 });
+      if (this.fileExist) {
+        this.updateFileContent(this.fileName, this.fileContent);
+      } else {
+        this.addFile(this.fileName, this.fileContent);
+      }
+      this.flash("File saved!", "success", { timeout: 3000 });
     }
+  },
+  computed: {
+    ...mapGetters("files", ["fileExist", "getFile"])
   }
 };
 </script>
