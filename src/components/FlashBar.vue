@@ -5,11 +5,11 @@
 </template>
 
 <style scoped>
-  #flash_messaging {
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    align-content: space-around;
-  }
+#flash_messaging {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  align-content: space-around;
+}
 </style>

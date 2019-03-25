@@ -30,8 +30,7 @@ export default {
       fileContent: null
     };
   },
-  methods:
-  {
+  methods: {
     onSave() {
       this.flash("Save button pushed!", "success", { timeout: 3000 });
     }
