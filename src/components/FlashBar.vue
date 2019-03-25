@@ -12,12 +12,4 @@
   align-items: baseline;
   align-content: space-around;
 }
-
-.success.flash__message {
-  display: flex;
-}
-
-.flash__message-content {
-  padding-right: 10px;
-}
 </style>
