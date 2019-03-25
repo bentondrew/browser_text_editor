@@ -13,7 +13,7 @@
         <input type="submit" value="Save" />
       </p>
     </form>
-    <div id="savedFile" v-show="this.fileExist(this.fileName)">
+    <div id="savedFile" v-show="showSaved">
       <hr />
       <h1>{{ getFile(fileName).name }}</h1>
       <h2>{{ getFile(fileName).content }}</h2>
@@ -35,12 +35,19 @@ export default {
   methods: {
     ...mapMutations("files", ["addFile", "updateFileContent"]),
     onSave() {
-      if (this.fileExist) {
+      if (this.fileExist(this.fileName)) {
         this.updateFileContent(this.fileName, this.fileContent);
       } else {
         this.addFile(this.fileName, this.fileContent);
       }
       this.flash("File saved!", "success", { timeout: 3000 });
+    },
+    showSaved() {
+      if (this.fileExist(this.fileName)) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   computed: {
