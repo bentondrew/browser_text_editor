@@ -16,14 +16,14 @@ import { mapGetters, mapMutations } from "vuex";
 
 export default {
   methods: {
-    ...mapMutations(["stopSession"]),
+    ...mapMutations("session", ["stopSession"]),
     logout() {
       this.stopSession();
       this.$router.push({ name: "home" });
     }
   },
   computed: {
-    ...mapGetters(["sessionAlive"])
+    ...mapGetters("session", ["sessionAlive"])
   }
 };
 </script>

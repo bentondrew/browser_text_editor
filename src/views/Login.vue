@@ -10,7 +10,7 @@ import { mapMutations } from "vuex";
 
 export default {
   methods: {
-    ...mapMutations(["startSession"]),
+    ...mapMutations("session", ["startSession"]),
     login() {
       this.startSession();
       this.$router.push({ name: "home" });
