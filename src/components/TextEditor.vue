@@ -1,6 +1,6 @@
 <template>
   <div class="text_editor">
-    <form class="editor">
+    <form class="editor" @submit.self.stop.prevent="onSave">
       <p>
         <label for="fileName">File Name:</label>
         <input id="fileName" v-model="fileName" placeholder="example.txt" />
@@ -10,7 +10,7 @@
         <textarea id="fileContent" v-model="fileContent"></textarea>
       </p>
       <p>
-        <input type="submit" value="Save" @click.self.stop="onSave" />
+        <input type="submit" value="Save" />
       </p>
     </form>
     <hr />
