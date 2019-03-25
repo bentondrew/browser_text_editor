@@ -15,8 +15,8 @@
     </form>
     <div id="savedFile" v-show="showSaved">
       <hr />
-      <h1>{{ getFile(fileName).name }}</h1>
-      <h2>{{ getFile(fileName).content }}</h2>
+      <h1>{{ savedFile(fileName).name }}</h1>
+      <h2>{{ savedFile(fileName).content }}</h2>
     </div>
   </div>
 </template>
@@ -47,6 +47,14 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+    savedFile() {
+      var file = this.getFile(this.fileName);
+      if (file) {
+        return file;
+      } else {
+        return {name: "", content ""}
       }
     }
   },
