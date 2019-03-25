@@ -1,6 +1,6 @@
 <template>
   <div id="flash_messaging">
-    <flash-message class="textEditorFlashMessaging"></flash-message>
+    <flash-message id="textEditorFlashMessaging"></flash-message>
   </div>
 </template>
 
@@ -11,5 +11,13 @@
   justify-content: center;
   align-items: baseline;
   align-content: space-around;
+}
+
+.success.flash__message {
+  display: flex;
+}
+
+.flash__message-content {
+  padding-right: 10px;
 }
 </style>
