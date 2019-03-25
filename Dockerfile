@@ -7,8 +7,7 @@ RUN npm install npm -g && \
     npm install -g typescript && \
     npm install -g ts-node && \
     npm install -g @vue/cli && \
-    npm install -g @vue/cli-service-global && \
-    npm install -g vue-flash-message
+    npm install -g @vue/cli-service-global
 
 # Create default Vue app
 FROM vue-cli-install as vue-app-create
@@ -22,6 +21,7 @@ RUN rm -rf src/main.js src/router.js src/store.js src/App.vue src/assets/logo.pn
 
 # Install custom app
 FROM custom-app-setup as custom-app-install
+RUN npm install -g vue-flash-message
 COPY src/ src/
 COPY public/ public/
 
