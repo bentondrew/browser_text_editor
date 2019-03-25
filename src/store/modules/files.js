@@ -16,7 +16,7 @@ const getters = {
   fileExist: state => fileName => {
     if (state.files.find(file => file.name === fileName)) {
       return true;
-    } else { 
+    } else {
       return false;
     }
   }
