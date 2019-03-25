@@ -7,7 +7,7 @@ import store from "./store";
 Vue.config.productionTip = false;
 Vue.use(VueFlashMessage);
 
-require('vue-flash-message/dist/vue-flash-message.min.css');
+require("vue-flash-message/dist/vue-flash-message.min.css");
 
 new Vue({
   router,
