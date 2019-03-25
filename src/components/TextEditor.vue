@@ -13,7 +13,7 @@
         <input type="submit" value="Save" />
       </p>
     </form>
-    <div id="savedFile" v-show="if { this.fileExist(this.fileName) }">
+    <div id="savedFile" v-show="this.fileExist(this.fileName)">
       <hr />
       <h1>{{ getFile(fileName).name }}</h1>
       <h2>{{ getFile(fileName).content }}</h2>
