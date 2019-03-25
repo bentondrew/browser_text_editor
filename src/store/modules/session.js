@@ -10,7 +10,7 @@ const state = {
 const getters = {
   sessionAlive: state => {
     return state.alive;
-  }
+  },
   getUserInfo: state => {
     return state.userInfo;
   },
