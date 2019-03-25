@@ -8,7 +8,7 @@
 #flash_messaging {
   padding: 30px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: baseline;
   align-content: space-around;
 }
