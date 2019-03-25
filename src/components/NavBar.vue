@@ -31,6 +31,10 @@ export default {
 <style scoped>
 #nav {
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: space-around;
 }
 
 #nav a {
@@ -40,5 +44,19 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#home_link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-content: flex-start;
+}
+
+#session_links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  align-content: flex-end;
 }
 </style>
