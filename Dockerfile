@@ -7,7 +7,8 @@ RUN npm install npm -g && \
     npm install -g typescript && \
     npm install -g ts-node && \
     npm install -g @vue/cli && \
-    npm install -g @vue/cli-service-global
+    npm install -g @vue/cli-service-global && \
+    npm install -g vue-flash-message
 
 # Create default Vue app
 FROM vue-cli-install as vue-app-create

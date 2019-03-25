@@ -8,7 +8,7 @@
       <router-link to="/account" v-show="sessionAlive">
         {{ getFullName }}
       </router-link>
-      <button @click="logout" v-show="sessionAlive">Logout</button>
+      <button @click.self.stop="logout" v-show="sessionAlive">Logout</button>
     </div>
   </div>
 </template>

@@ -1,14 +1,16 @@
 <template>
   <div id="app">
     <NavBar />
+    <FlashBar />
     <router-view />
   </div>
 </template>
 
 <script>
 import NavBar from "./NavBar.vue";
+import FlashBar from "./FlashBar.vue";
 export default {
-  components: { NavBar }
+  components: { NavBar, FlashBar }
 };
 </script>
 

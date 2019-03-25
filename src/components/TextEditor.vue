@@ -10,7 +10,7 @@
         <textarea id="fileContent" v-model="fileContent"></textarea>
       </p>
       <p>
-        <input type="submit" value="Save" />
+        <input type="submit" value="Save" @click.self.stop="onSave" />
       </p>
     </form>
     <hr />
@@ -29,6 +29,12 @@ export default {
       fileName: null,
       fileContent: null
     };
+  },
+  methods:
+  {
+    onSave() {
+      this.flash("Save button pushed!", "success", { timeout: 3000 });
+    }
   }
 };
 </script>
