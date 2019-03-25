@@ -5,7 +5,7 @@
     </div>
     <div id="session_links">
       <router-link to="/login" v-show="!sessionAlive">Login</router-link>
-      <router-link to="/account" v-show="sessionAlive">Account</router-link>
+      <router-link to="/account" v-show="sessionAlive">{{ getFullName }}</router-link>
       <button @click="logout" v-show="sessionAlive">Logout</button>
     </div>
   </div>
@@ -23,7 +23,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("session", ["sessionAlive"])
+    ...mapGetters("session",
+        ["sessionAlive",
+         "getFullName"])
   }
 };
 </script>
