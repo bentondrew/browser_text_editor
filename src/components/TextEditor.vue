@@ -54,7 +54,7 @@ export default {
       if (file) {
         return file;
       } else {
-        return { name: "", content: "" }
+        return { name: "", content: "" };
       }
     }
   },
