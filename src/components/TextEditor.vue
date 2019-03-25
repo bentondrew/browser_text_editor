@@ -28,7 +28,7 @@ export default {
     return {
       fileName: null,
       fileContent: null
-    }
+    };
   }
 };
 </script>
