@@ -70,34 +70,36 @@ export default {
       }
     },
     proceedClear() {
-      var proceedClear = true
+      var proceedClear = true;
       if (!this.fileExist(this.file.name)) {
         this.$dialog
-        .confirm("File in editor not saved." +
-                 " Click Proceed to clear file without saving." +
-                 " Otherwise click Cancel and save before clearing file.")
-        .then(function(dialog) {
-          proceedClear = true
-        })
-        .catch(function() {
-          proceedClear = false
-        })
-      } else {
-        var sFile = this.getFile(this.file.name);
-        if (sFile.content !== this.file.content) {
-          this.$dialog
-          .confirm("File in editor has been changed since last save." +
-                   " Click Proceed to clear file without saving." +
-                   " Otherwise click Cancel and save before clearing file.")
-          .then(function(dialog) {
+          .confirm(
+            "File in editor not saved." +
+            " Click Proceed to clear file without saving." +
+            " Otherwise click Cancel and save before clearing file.")
+          .then(function() {
             proceedClear = true
           })
           .catch(function() {
             proceedClear = false
-          })
+          });
+      } else {
+        var sFile = this.getFile(this.file.name);
+        if (sFile.content !== this.file.content) {
+          this.$dialog
+            .confirm(
+              "File in editor has been changed since last save." +
+              " Click Proceed to clear file without saving." +
+              " Otherwise click Cancel and save before clearing file.")
+            .then(function() {
+              proceedClear = true
+            })
+            .catch(function() {
+              proceedClear = false
+            });
         }
       }
-      return proceedClear
+      return proceedClear;
     },
     clearFile() {
       if (this.proceedClear()) {
