@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueFlashMessage from "vue-flash-message";
 import VuejsDialog from "vuejs-dialog";
-import VuejsDialogMixin from "vuejs-dialog/vuejs-dialog-mixin.min.js";
 import App from "./components/App.vue";
 import router from "./router";
 import store from "./store";
