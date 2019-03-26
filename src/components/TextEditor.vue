@@ -76,7 +76,8 @@ export default {
           .confirm(
             "File in editor not saved." +
               " Click Proceed to clear file without saving." +
-              " Otherwise click Cancel and save before clearing file.")
+              " Otherwise click Cancel and save before clearing file."
+          )
           .then(function() {
             proceedClear = true;
           })
@@ -90,7 +91,8 @@ export default {
             .confirm(
               "File in editor has been changed since last save." +
                 " Click Proceed to clear file without saving." +
-                " Otherwise click Cancel and save before clearing file.")
+                " Otherwise click Cancel and save before clearing file."
+            )
             .then(function() {
               proceedClear = true;
             })
