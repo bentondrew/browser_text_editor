@@ -2,8 +2,8 @@
   <div id="textEditor">
     <div id="fileLoader">
       <ul id="fileList">
-        <li id="fileRef" v-for="fileName in getFileNames">
-          <div id="fileId"> {{ fileName }} </div>
+        <li id="fileRef" v-for="fileName in getFileNames" :key="fileName">
+          <div id="fileId">{{ fileName }}</div>
           <button id="fileLoad">Load</button>
         </li>
       </ul>
