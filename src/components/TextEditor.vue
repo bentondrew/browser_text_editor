@@ -47,12 +47,8 @@ export default {
     ...mapMutations("files", ["addFile", "updateFileContent"]),
     onSave() {
       if (this.fileExist(this.file.name)) {
-        console.log("Updating existing file " + this.file.name);
-        console.log("Content: " + this.file.content);
         this.updateFileContent(this.file);
       } else {
-        console.log("Adding new file " + this.file.name);
-        console.log("Content: " + this.file.content);
         this.addFile(this.file);
       }
       this.flash("File saved!", "success", { timeout: 3000 });
