@@ -84,7 +84,7 @@ export default {
         this.file.content = lFile.content;
       } else {
         this.flash(
-          "Unable to load file " + fileName + " as it was not found." ,
+          "Unable to load file " + fileName + " as it was not found.",
           "error",
           { timeout: 3000 }
         );
