@@ -1,32 +1,32 @@
 <template>
   <div id="textEditor">
-    <form id="editor" @submit.self.stop.prevent="onSave">
-      <div id="fileActions">
-        <input type="submit" value="Save" />
-        <button @click.self.stop.prevent="clearFile">Clear</button>
-      </div>
-      <div id="fileNameSection">
-        <label for="fileName">File Name:</label>
-        <input id="fileName" v-model="file.name" placeholder="example.txt" />
-      </div>
-      <div id="fileContentSection">
-        <label for="fileContent">File Content:</label>
-        <textarea
-          id="fileContent"
-          v-model="file.content"
-          placeholder="Enter file contents."
-        ></textarea>
-      </div>
-    </form>
-    <div id="localFile">
-      <hr />
-      <h1>{{ file.name }}</h1>
-      <h2>{{ file.content }}</h2>
+    <div id="fileLoader">
+      <ul id="fileList">
+        <li id="fileRef" v-for="fileName in getFileNames">
+          <div id="fileId"> {{ fileName }} </div>
+          <button id="fileLoad">Load</button>
+        </li>
+      </ul>
     </div>
-    <div id="savedFile" v-show="showSaved">
-      <hr />
-      <h1>{{ savedFile(file.name).name }}</h1>
-      <h2>{{ savedFile(file.name).content }}</h2>
+    <div id="fileEditing">
+      <form id="editor" @submit.self.stop.prevent="onSave">
+        <div id="fileActions">
+          <input type="submit" value="Save" />
+          <button @click.self.stop.prevent="clearFile">Clear</button>
+        </div>
+        <div id="fileNameSection">
+          <label for="fileName">File Name:</label>
+          <input id="fileName" v-model="file.name" placeholder="example.txt" />
+        </div>
+        <div id="fileContentSection">
+          <label for="fileContent">File Content:</label>
+          <textarea
+            id="fileContent"
+            v-model="file.content"
+            placeholder="Enter file contents."
+          ></textarea>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -53,7 +53,6 @@ export default {
       } else {
         this.addFile(this.file);
       }
-      this.flash("File saved!", "success", { timeout: 3000 });
     },
     showSaved() {
       if (this.fileExist(this.file.name)) {
@@ -76,7 +75,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("files", ["fileExist", "getFile"])
+    ...mapGetters("files", ["fileExist", "getFile", "getFileNames"])
   }
 };
 </script>
