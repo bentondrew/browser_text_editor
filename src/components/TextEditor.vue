@@ -87,7 +87,7 @@ export default {
   align-items: center;
 }
 
-#fileLoader{
+#fileLoader {
   align-self: flex-start;
 }
 
