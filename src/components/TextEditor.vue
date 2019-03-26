@@ -7,12 +7,21 @@
       </p>
       <p>
         <label for="fileContent">File Content:</label>
-        <textarea id="fileContent" v-model="fileContent"></textarea>
+        <textarea
+          id="fileContent"
+          v-model="fileContent"
+          placeholder="Enter file contents."
+        ></textarea>
       </p>
       <p>
         <input type="submit" value="Save" />
       </p>
     </form>
+    <div id="localFile">
+      <hr />
+      <h1>{{ fileName }}</h1>
+      <h2>{{ fileContent }}</h2>
+    </div>
     <div id="savedFile" v-show="showSaved">
       <hr />
       <h1>{{ savedFile(fileName).name }}</h1>
