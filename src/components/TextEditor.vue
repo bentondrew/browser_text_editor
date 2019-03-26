@@ -6,7 +6,7 @@
       <ul id="fileList">
         <li id="fileRef" v-for="fileName in getFileNames" :key="fileName">
           <div id="fileId">{{ fileName }}</div>
-          <button id="fileLoad">Load</button>
+          <button id="fileLoad" @click.self.stop.prevent="loadFile(fileName)">Load</button>
         </li>
       </ul>
     </div>
@@ -74,6 +74,17 @@ export default {
     clearFile() {
       this.file.name = null;
       this.file.content = null;
+    },
+    loadFile(fileName) {
+      var lFile = getFile(fileName);
+      if (lFile) {
+        this.file.name = lFile.name;
+        this.file.content = lFile.content;
+      } else {
+        this.flash("Unable to load file " + fileName + " as it was not found." ,
+          "error",
+          { timeout: 3000 });
+      }
     }
   },
   computed: {
