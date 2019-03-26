@@ -65,7 +65,7 @@ export default {
       }
     },
     savedFile() {
-      var file = this.getFile(tthis.file.name);
+      var file = this.getFile(this.file.name);
       if (file) {
         return file;
       } else {
