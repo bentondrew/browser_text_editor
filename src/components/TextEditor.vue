@@ -1,6 +1,6 @@
 <template>
-  <div class="text_editor">
-    <form class="editor" @submit.self.stop.prevent="onSave">
+  <div id="textEditor">
+    <form id="editor" @submit.self.stop.prevent="onSave">
       <p>
         <label for="fileName">File Name:</label>
         <input id="fileName" v-model="file.name" placeholder="example.txt" />
@@ -13,9 +13,10 @@
           placeholder="Enter file contents."
         ></textarea>
       </p>
-      <p>
+      <div id="fileActions">
         <input type="submit" value="Save" />
-      </p>
+        <button @click.self.stop.prevent="clearFile">Clear</button>
+      </div>
     </form>
     <div id="localFile">
       <hr />
@@ -61,11 +62,47 @@ export default {
       }
     },
     savedFile() {
-      var file = this.getFile(this.file.name);
-      if (file) {
-        return file;
+      var sFile = this.getFile(this.file.name);
+      if (sFile) {
+        return sFile;
       } else {
         return { name: "", content: "" };
+      }
+    },
+    proceedClear() {
+      var proceedClear = true
+      if (!this.fileExist(this.file.name)) {
+        this.$dialog
+        .confirm("File in editor not saved." +
+                 " Click Proceed to clear file without saving." +
+                 " Otherwise click Cancel and save before clearing file.")
+        .then(function(dialog) {
+          proceedClear = true
+        })
+        .catch(function() {
+          proceedClear = false
+        })
+      } else {
+        var sFile = this.getFile(this.file.name);
+        if (sFile.content !== this.file.content) {
+          this.$dialog
+          .confirm("File in editor has been changed since last save." +
+                   " Click Proceed to clear file without saving." +
+                   " Otherwise click Cancel and save before clearing file.")
+          .then(function(dialog) {
+            proceedClear = true
+          })
+          .catch(function() {
+            proceedClear = false
+          })
+        }
+      }
+      return proceedClear
+    },
+    clearFile() {
+      if (this.proceedClear()) {
+        this.file.name = null;
+        this.file.content = null;
       }
     }
   },
