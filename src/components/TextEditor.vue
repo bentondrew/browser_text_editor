@@ -2,6 +2,7 @@
   <div id="textEditor">
     <div id="fileLoader">
       <div id="loaderTitle"> Saved Files </div>
+      <hr />
       <ul id="fileList">
         <li id="fileRef" v-for="fileName in getFileNames" :key="fileName">
           <div id="fileId">{{ fileName }}</div>
