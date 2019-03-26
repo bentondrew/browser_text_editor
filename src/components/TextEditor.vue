@@ -1,6 +1,7 @@
 <template>
   <div id="textEditor">
     <div id="fileLoader">
+      <div id="loaderTitle"> Saved Files </div>
       <ul id="fileList">
         <li id="fileRef" v-for="fileName in getFileNames" :key="fileName">
           <div id="fileId">{{ fileName }}</div>
@@ -95,10 +96,15 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  border: 1px solid black;
 }
 
 #fileList {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 #fileRef {
