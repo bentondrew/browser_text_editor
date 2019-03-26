@@ -75,13 +75,13 @@ export default {
         this.$dialog
           .confirm(
             "File in editor not saved." +
-            " Click Proceed to clear file without saving." +
-            " Otherwise click Cancel and save before clearing file.")
+              " Click Proceed to clear file without saving." +
+              " Otherwise click Cancel and save before clearing file.")
           .then(function() {
-            proceedClear = true
+            proceedClear = true;
           })
           .catch(function() {
-            proceedClear = false
+            proceedClear = false;
           });
       } else {
         var sFile = this.getFile(this.file.name);
@@ -89,13 +89,13 @@ export default {
           this.$dialog
             .confirm(
               "File in editor has been changed since last save." +
-              " Click Proceed to clear file without saving." +
-              " Otherwise click Cancel and save before clearing file.")
+                " Click Proceed to clear file without saving." +
+                " Otherwise click Cancel and save before clearing file.")
             .then(function() {
-              proceedClear = true
+              proceedClear = true;
             })
             .catch(function() {
-              proceedClear = false
+              proceedClear = false;
             });
         }
       }
