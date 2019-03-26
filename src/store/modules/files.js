@@ -13,12 +13,12 @@ const getters = {
   getFile: state => fileName => {
     var file = state.files.find(file => file.name === fileName);
     if (file) {
-      console.log("File store retrieve file " + fileName);
-      console.log("Content: " + fileContent);
+      console.log("File store retrieve file " + file.name);
+      console.log("Content: " + file.content);
     } else {
       console.log("File store unable to retrieve file.");
     }
-    return state.files.find(file => file.name === fileName);
+    return file;
   },
   fileExist: state => fileName => {
     if (state.files.find(file => file.name === fileName)) {
@@ -32,17 +32,17 @@ const getters = {
 const actions = {};
 
 const mutations = {
-  addFile: (state, fileName, fileContent) => {
-    console.log("File store add file " + fileName);
-    console.log("Content: " + fileContent);
-    state.files.push({ name: fileName, content: fileContent });
+  addFile: (state, inFile) => {
+    console.log("File store add file " + inFile.name);
+    console.log("Content: " + inFile.content);
+    state.files.push({ name: inFile.name, content: inFile.content });
   },
-  updateFileContent: (state, fileName, fileContent) => {
-    var fileIndex = state.files.findIndex(file => file.fileName === fileName);
+  updateFileContent: (state, inFile) => {
+    var fileIndex = state.files.findIndex(file => file.name === inFile.name);
     if (fileIndex) {
-      console.log("File store update file " + fileName);
-      console.log("Content: " + fileContent);
-      state.files[fileIndex].content = fileContent;
+      console.log("File store update file " + inFile.name);
+      console.log("Content: " + inFile.content);
+      state.files[fileIndex].content = inFile.content;
     }
   }
 };

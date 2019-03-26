@@ -3,13 +3,13 @@
     <form class="editor" @submit.self.stop.prevent.once="onSave">
       <p>
         <label for="fileName">File Name:</label>
-        <input id="fileName" v-model="fileName" placeholder="example.txt" />
+        <input id="fileName" v-model="file.name" placeholder="example.txt" />
       </p>
       <p>
         <label for="fileContent">File Content:</label>
         <textarea
           id="fileContent"
-          v-model="fileContent"
+          v-model="file.content"
           placeholder="Enter file contents."
         ></textarea>
       </p>
@@ -19,13 +19,13 @@
     </form>
     <div id="localFile">
       <hr />
-      <h1>{{ fileName }}</h1>
-      <h2>{{ fileContent }}</h2>
+      <h1>{{ file.name }}</h1>
+      <h2>{{ file.content }}</h2>
     </div>
     <div id="savedFile" v-show="showSaved">
       <hr />
-      <h1>{{ savedFile(fileName).name }}</h1>
-      <h2>{{ savedFile(fileName).content }}</h2>
+      <h1>{{ savedFile(file.name).name }}</h1>
+      <h2>{{ savedFile(file.name).content }}</h2>
     </div>
   </div>
 </template>
@@ -37,33 +37,35 @@ export default {
   name: "TextEditor",
   data() {
     return {
-      fileName: null,
-      fileContent: null
+      file: {
+        name: null,
+        content: null
+      }
     };
   },
   methods: {
     ...mapMutations("files", ["addFile", "updateFileContent"]),
     onSave() {
-      if (this.fileExist(this.fileName)) {
-        console.log("Updating existing file " + this.fileName);
-        console.log("Content: " + this.fileContent);
-        this.updateFileContent(this.fileName, this.fileContent);
+      if (this.fileExist(this.file.name)) {
+        console.log("Updating existing file " + this.file.name);
+        console.log("Content: " + this.file.content);
+        this.updateFileContent(this.file);
       } else {
-        console.log("Adding new file " + this.fileName);
-        console.log("Content: " + this.fileContent);
-        this.addFile(this.fileName, this.fileContent);
+        console.log("Adding new file " + this.file.name);
+        console.log("Content: " + this.file.content);
+        this.addFile(this.file);
       }
       this.flash("File saved!", "success", { timeout: 3000 });
     },
     showSaved() {
-      if (this.fileExist(this.fileName)) {
+      if (this.fileExist(this.file.name)) {
         return true;
       } else {
         return false;
       }
     },
     savedFile() {
-      var file = this.getFile(this.fileName);
+      var file = this.getFile(tthis.file.name);
       if (file) {
         return file;
       } else {
