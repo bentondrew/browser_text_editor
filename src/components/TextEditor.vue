@@ -1,12 +1,14 @@
 <template>
   <div id="textEditor">
     <div id="fileLoader">
-      <div id="loaderTitle"> Saved Files </div>
+      <div id="loaderTitle">Saved Files</div>
       <hr />
       <ul id="fileList">
         <li id="fileRef" v-for="fileName in getFileNames" :key="fileName">
           <div id="fileId">{{ fileName }}</div>
-          <button id="fileLoad" @click.self.stop.prevent="loadFile(fileName)">Load</button>
+          <button id="fileLoad" @click.self.stop.prevent="loadFile(fileName)">
+            Load
+          </button>
         </li>
       </ul>
     </div>
@@ -76,14 +78,16 @@ export default {
       this.file.content = null;
     },
     loadFile(fileName) {
-      var lFile = getFile(fileName);
+      var lFile = this.getFile(fileName);
       if (lFile) {
         this.file.name = lFile.name;
         this.file.content = lFile.content;
       } else {
-        this.flash("Unable to load file " + fileName + " as it was not found." ,
+        this.flash(
+          "Unable to load file " + fileName + " as it was not found." ,
           "error",
-          { timeout: 3000 });
+          { timeout: 3000 }
+        );
       }
     }
   },
