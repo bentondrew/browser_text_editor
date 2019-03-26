@@ -1,6 +1,6 @@
 <template>
   <div class="text_editor">
-    <form class="editor" @submit.once.self.stop.prevent="onSave">
+    <form class="editor" @submit.self.stop.prevent.once="onSave">
       <p>
         <label for="fileName">File Name:</label>
         <input id="fileName" v-model="fileName" placeholder="example.txt" />
