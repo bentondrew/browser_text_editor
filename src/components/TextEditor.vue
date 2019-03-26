@@ -83,18 +83,34 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #textEditor {
+  position: relative;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  align-content: space-around;
 }
 
 #fileLoader {
-  align-self: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #fileList {
   list-style-type: none;
+}
+
+#fileRef {
+  display: flex;
+}
+
+#fileId {
+  padding: 5px;
+}
+
+#fileEditing {
+  padding: 5px;
+  margin: 1px;
 }
 </style>
