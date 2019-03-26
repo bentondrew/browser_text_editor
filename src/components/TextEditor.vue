@@ -81,4 +81,17 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+  #textEditor {
+    display: flex;
+    align-items: center;
+  }
+
+  #fileLoader{
+    align-self: flex-start;
+  }
+
+  #fileList {
+    list-style-type: none;
+  }
+</style>
