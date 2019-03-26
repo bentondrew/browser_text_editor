@@ -82,16 +82,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #textEditor {
-    display: flex;
-    align-items: center;
-  }
+#textEditor {
+  display: flex;
+  align-items: center;
+}
 
-  #fileLoader{
-    align-self: flex-start;
-  }
+#fileLoader{
+  align-self: flex-start;
+}
 
-  #fileList {
-    list-style-type: none;
-  }
+#fileList {
+  list-style-type: none;
+}
 </style>
