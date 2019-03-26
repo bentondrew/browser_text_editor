@@ -39,7 +39,7 @@ const mutations = {
   },
   updateFileContent: (state, inFile) => {
     var fileIndex = state.files.findIndex(file => file.name === inFile.name);
-    if (fileIndex) {
+    if (fileIndex !== -1) {
       console.log("File store update file " + inFile.name);
       console.log("Content: " + inFile.content);
       state.files[fileIndex].content = inFile.content;
