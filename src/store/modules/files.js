@@ -44,6 +44,9 @@ const mutations = {
       console.log("Content: " + inFile.content);
       state.files[fileIndex].content = inFile.content;
     }
+    else {
+      console.log("File store unable to find file to update.");
+    }
   }
 };
 
