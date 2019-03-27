@@ -25,16 +25,16 @@ const getters = {
 };
 
 const actions = {
-  addFile: (state, userName, inFile) => {
+  addFile ({ commit }, userName, inFile) {
     var resFile = api.addUserFile(userName, inFile);
-    this.commit({
+    commit({
       type: "addFile",
       inFile: resFile
     });
   },
-  updateFileContent: (state, userName, inFile) => {
+  updateFileContent ({ commit }, userName, inFile) {
     var resFile = api.updateUserFile(userName, inFile);
-    this.commit({
+    commit({
       type: "updateFileContent",
       inFile: resFile
     });
