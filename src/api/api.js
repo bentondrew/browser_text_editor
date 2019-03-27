@@ -46,6 +46,4 @@ class API {
   }
 }
 
-const api = new API();
-
-module.exports = api;
+export default new API();
