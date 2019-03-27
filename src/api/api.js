@@ -3,7 +3,7 @@
 const superagent = require("superagent");
 
 class API {
-  getUserFiles(userName) {
+  this.getUserFiles(userName) {
     var returnArray = [];
     superagent.get("http://localhost/files/" + userName, function(err, res) {
       if (err) throw err;
@@ -11,7 +11,7 @@ class API {
     });
     return returnArray;
   }
-  getFile(userName, fileName) {
+  this.getFile(userName, fileName) {
     var returnObject = [];
     superagent.get(
       "http://localhost/files/" + userName + "/" + fileName,
@@ -22,7 +22,7 @@ class API {
     );
     return returnObject;
   }
-  addUserFile(userName, fileObject) {
+  this.addUserFile(userName, fileObject) {
     var returnObject = [];
     superagent
       .post("http://localhost/files/" + userName + "/" + fileObject.name)
@@ -33,7 +33,7 @@ class API {
       });
     return returnObject;
   }
-  updateUserFile(userName, fileObject) {
+  this.updateUserFile(userName, fileObject) {
     var returnObject = [];
     superagent
       .put("http://localhost/files/" + userName + "/" + fileObject.name)
