@@ -1,3 +1,5 @@
+const api = require("../../api/api");
+
 const state = {
   files: []
 };
@@ -22,7 +24,22 @@ const getters = {
   }
 };
 
-const actions = {};
+const actions = {
+  addFile: (state, userName, inFile) => {
+    resFile = api.addUserFile(userName, inFile)
+    commit({
+      type: "addFile",
+      inFile: resFile
+    })
+  },
+  updateFileContent: (state, userName, inFile) => {
+    resFile = api.updateUserFile(userName, inFile)
+    commit({
+      type: "updateFileContent",
+      inFile: resFile
+    })
+  }
+};
 
 const mutations = {
   addFile: (state, inFile) => {

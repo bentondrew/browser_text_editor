@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "TextEditor",
@@ -50,7 +50,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("files", ["addFile", "updateFileContent"]),
+    ...mapActions("files", ["addFile", "updateFileContent"]),
     onSave() {
       if (this.fileExist(this.file.name)) {
         this.updateFileContent(this.file);

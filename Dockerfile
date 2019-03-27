@@ -21,7 +21,8 @@ RUN rm -rf src/main.js src/router.js src/store.js src/App.vue src/assets/logo.pn
 
 # Install custom app
 FROM custom-app-setup as custom-app-install
-RUN npm install vue-flash-message
+RUN npm install vue-flash-message && \
+    npm install superagent
 COPY src/ src/
 COPY public/ public/
 
