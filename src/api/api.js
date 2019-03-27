@@ -5,11 +5,10 @@ const superagent = require("superagent");
 class API {
   getUserFiles(userName) {
     var returnArray = [];
-    superagent.get("http://localhost/files/" + userName,
-      function(err, res) {
-        if (err) throw err;
-        returnArray = res.body;
-      }
+    superagent.get("http://localhost/files/" + userName, function(err, res) {
+      if (err) throw err;
+      returnArray = res.body;
+    }
     );
     return returnArray;
   }
@@ -27,7 +26,7 @@ class API {
     var returnObject = [];
     superagent
       .post("http://localhost/files/" + userName + "/" + fileObject.name)
-      .send({content: fileObject.content})
+      .send({ content: fileObject.content })
       .then(
         function(err, res) {
           if (err) throw err;
@@ -40,7 +39,7 @@ class API {
     var returnObject = [];
     superagent
       .put("http://localhost/files/" + userName + "/" + fileObject.name)
-      .send({content: fileObject.content})
+      .send({ content: fileObject.content })
       .then(
         function(err, res) {
           if (err) throw err;
