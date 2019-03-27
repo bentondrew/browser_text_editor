@@ -9,7 +9,7 @@ export default {
     });
     return returnArray;
   },
-  
+
   getFile(userName, fileName) {
     var returnObject = [];
     superagent.get(
@@ -21,7 +21,7 @@ export default {
     );
     return returnObject;
   },
-  
+
   addUserFile(userName, fileObject) {
     var returnObject = [];
     superagent
@@ -33,7 +33,7 @@ export default {
       });
     return returnObject;
   },
-  
+
   updateUserFile(userName, fileObject) {
     var returnObject = [];
     superagent
