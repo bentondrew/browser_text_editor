@@ -8,7 +8,7 @@ export default {
       returnArray = res.body;
     });
     return returnArray;
-  }
+  },
   
   getFile(userName, fileName) {
     var returnObject = [];
@@ -20,7 +20,7 @@ export default {
       }
     );
     return returnObject;
-  }
+  },
   
   addUserFile(userName, fileObject) {
     var returnObject = [];
@@ -32,7 +32,7 @@ export default {
         returnObject = res.body;
       });
     return returnObject;
-  }
+  },
   
   updateUserFile(userName, fileObject) {
     var returnObject = [];
