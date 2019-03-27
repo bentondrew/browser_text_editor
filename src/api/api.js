@@ -30,7 +30,7 @@ class API {
       .then(function(err, res) {
         if (err) throw err;
         returnObject = res.body;
-        });
+      });
     return returnObject;
   }
   updateUserFile(userName, fileObject) {
