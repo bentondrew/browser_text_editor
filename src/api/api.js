@@ -1,10 +1,6 @@
-"use strict";
-
 const superagent = require("superagent");
 
-class API {
-  constructor() {}
-
+export default {
   getUserFiles(userName) {
     var returnArray = [];
     superagent.get("http://localhost/files/" + userName, function(err, res) {
@@ -13,6 +9,7 @@ class API {
     });
     return returnArray;
   }
+  
   getFile(userName, fileName) {
     var returnObject = [];
     superagent.get(
@@ -24,6 +21,7 @@ class API {
     );
     return returnObject;
   }
+  
   addUserFile(userName, fileObject) {
     var returnObject = [];
     superagent
@@ -35,6 +33,7 @@ class API {
       });
     return returnObject;
   }
+  
   updateUserFile(userName, fileObject) {
     var returnObject = [];
     superagent
@@ -46,6 +45,4 @@ class API {
       });
     return returnObject;
   }
-}
-
-export default new API();
+};
