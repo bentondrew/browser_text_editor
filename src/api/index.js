@@ -23,26 +23,14 @@ export default {
   },
 
   addUserFile(userName, fileObject) {
-    var returnObject = {};
-    superagent
+    return superagent
       .post("http://localhost/files/" + userName + "/" + fileObject.name)
-      .send({ content: fileObject.content })
-      .then(res => res.body)
-      .then(file => {
-        returnObject = file;
-      });
-    return returnObject;
+      .send({ content: fileObject.content });
   },
 
   updateUserFile(userName, fileObject) {
-    var returnObject = {};
-    superagent
+    return superagent
       .put("http://localhost/files/" + userName + "/" + fileObject.name)
-      .send({ content: fileObject.content })
-      .then(res => res.body)
-      .then(file => {
-        returnObject = file;
-      });
-    return returnObject;
+      .send({ content: fileObject.content });
   }
 };
