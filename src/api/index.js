@@ -29,7 +29,7 @@ export default {
       .send({ content: fileObject.content })
       .then(res => res.body)
       .then(file => {
-        returnObject = file
+        returnObject = file;
       });
     return returnObject;
   },
@@ -41,7 +41,7 @@ export default {
       .send({ content: fileObject.content })
       .then(res => res.body)
       .then(file => {
-        returnObject = file
+        returnObject = file;
       });
     return returnObject;
   }
