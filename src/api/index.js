@@ -11,7 +11,7 @@ export default {
   },
 
   getFile(userName, fileName) {
-    var returnObject = [];
+    var returnObject = {};
     superagent.get(
       "http://localhost/files/" + userName + "/" + fileName,
       function(err, res) {
@@ -23,26 +23,22 @@ export default {
   },
 
   addUserFile(userName, fileObject) {
-    var returnObject = [];
+    var returnObject = {};
     superagent
       .post("http://localhost/files/" + userName + "/" + fileObject.name)
       .send({ content: fileObject.content })
-      .then(function(err, res) {
-        if (err) throw err;
-        returnObject = res.body;
-      });
+      .then(res => res.body)
+      .then(file => { returnObject = file });
     return returnObject;
   },
 
   updateUserFile(userName, fileObject) {
-    var returnObject = [];
+    var returnObject = {};
     superagent
       .put("http://localhost/files/" + userName + "/" + fileObject.name)
       .send({ content: fileObject.content })
-      .then(function(err, res) {
-        if (err) throw err;
-        returnObject = res.body;
-      });
+      .then(res => res.body)
+      .then(file => { returnObject = file });
     return returnObject;
   }
 };
