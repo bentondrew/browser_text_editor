@@ -26,24 +26,20 @@ const getters = {
 
 const actions = {
   addFile({ commit }, payload) {
-    api.addUserFile(payload.userName, payload.inFile)
-    .then( resp => {
-        commit({
-          type: "addFile",
-          inFile: resp.body}
-        )
-      }
-    );
+    api.addUserFile(payload.userName, payload.inFile).then( resp => {
+      commit({
+        type: "addFile",
+        inFile: resp.body
+      });
+    });
   },
   updateFileContent({ commit }, payload) {
-    api.updateUserFile(payload.userName, payload.inFile)
-    .then( resp => {
-        commit({
-          type: "updateFileContent",
-          inFile: resp.body}
-        )
-      }
-    );
+    api.updateUserFile(payload.userName, payload.inFile).then( resp => {
+      commit({
+        type: "updateFileContent",
+        inFile: resp.body
+      });
+    });
   }
 };
 
