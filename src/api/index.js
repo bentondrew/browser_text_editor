@@ -28,7 +28,9 @@ export default {
       .post("http://localhost/files/" + userName + "/" + fileObject.name)
       .send({ content: fileObject.content })
       .then(res => res.body)
-      .then(file => { returnObject = file });
+      .then(file => {
+        returnObject = file
+      });
     return returnObject;
   },
 
@@ -38,7 +40,9 @@ export default {
       .put("http://localhost/files/" + userName + "/" + fileObject.name)
       .send({ content: fileObject.content })
       .then(res => res.body)
-      .then(file => { returnObject = file });
+      .then(file => {
+        returnObject = file
+      });
     return returnObject;
   }
 };
