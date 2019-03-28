@@ -52,10 +52,11 @@ export default {
   methods: {
     ...mapActions("files", ["addFile", "updateFileContent"]),
     onSave() {
+      payload = { "userName": this.getUsername, "inFile": this.file }
       if (this.fileExist(this.file.name)) {
-        this.updateFileContent(this.getUsername, this.file);
+        this.updateFileContent(payload);
       } else {
-        this.addFile(this.getUsername, this.file);
+        this.addFile(payload);
       }
     },
     showSaved() {

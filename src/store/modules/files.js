@@ -25,15 +25,15 @@ const getters = {
 };
 
 const actions = {
-  addFile({ commit }, userName, inFile) {
-    var resFile = api.addUserFile(userName, inFile);
+  addFile({ commit }, payload) {
+    var resFile = api.addUserFile(payload.userName, payload.inFile);
     commit({
       type: "addFile",
       inFile: resFile
     });
   },
-  updateFileContent({ commit }, userName, inFile) {
-    var resFile = api.updateUserFile(userName, inFile);
+  updateFileContent({ commit }, payload) {
+    var resFile = api.updateUserFile(payload.userName, payload.inFile);
     commit({
       type: "updateFileContent",
       inFile: resFile
