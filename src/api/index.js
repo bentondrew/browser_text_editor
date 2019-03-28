@@ -25,12 +25,14 @@ export default {
   addUserFile(userName, fileObject) {
     return superagent
       .post("http://localhost/files/" + userName + "/" + fileObject.name)
-      .send({ content: fileObject.content });
+      .send({ content: fileObject.content })
+      .then(resp => resp.body);
   },
 
   updateUserFile(userName, fileObject) {
     return superagent
       .put("http://localhost/files/" + userName + "/" + fileObject.name)
-      .send({ content: fileObject.content });
+      .send({ content: fileObject.content })
+      .then(resp => resp.body);
   }
 };
