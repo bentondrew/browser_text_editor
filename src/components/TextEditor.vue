@@ -53,9 +53,9 @@ export default {
     ...mapActions("files", ["addFile", "updateFileContent"]),
     onSave() {
       if (this.fileExist(this.file.name)) {
-        this.updateFileContent(this.file);
+        this.updateFileContent(this.getUsername, this.file);
       } else {
-        this.addFile(this.file);
+        this.addFile(this.getUsername, this.file);
       }
     },
     showSaved() {
@@ -92,7 +92,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("files", ["fileExist", "getFile", "getFileNames"])
+    ...mapGetters("files", ["fileExist", "getFile", "getFileNames"]),
+    ...mapGetters("session", ["getUsername"])
   }
 };
 </script>
